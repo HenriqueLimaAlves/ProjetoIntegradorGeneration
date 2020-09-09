@@ -20,19 +20,15 @@ public class Produto {
 	private long id;
 	
 	@NotNull
-	@Size(max=250)
-	private String categoria;
-	
-	@NotNull
 	@Size(max=4)
 	private int quantidade; 
 	
 	private boolean urgente;
 	
-	@ManyToOne
+	@ManyToOne()
 	@JsonIgnoreProperties("produto")
 	//cat == model Categoria
-	private Categoria cat; 
+	private Categoria categoria; 
 
 	public long getId() {
 		return id;
@@ -40,14 +36,6 @@ public class Produto {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getCategoria() {
-		return categoria;
-	}
-
-	public void setCategoria(String categoria) {
-		this.categoria = categoria;
 	}
 
 	public int getQuantidade() {
@@ -66,11 +54,11 @@ public class Produto {
 		this.urgente = urgente;
 	}
 
-	public Categoria getCat() {
-		return cat;
+	public Categoria getCategoria() {
+		return categoria;
 	}
 
-	public void setCat(Categoria cat) {
-		this.cat = cat;
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
 	}
 }
