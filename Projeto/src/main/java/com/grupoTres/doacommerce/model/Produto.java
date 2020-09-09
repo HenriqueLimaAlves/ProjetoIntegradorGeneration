@@ -20,8 +20,12 @@ public class Produto {
 	private long id;
 	
 	@NotNull
-	@Size(max=4)
+	//@Size(max=4) ta dando problema na validação do Size
 	private int quantidade; 
+	
+	@NotNull
+	@Size(max=25)
+	private String nome;//tive que adicionar o "nome do produto", caso contrario só apareceria a categoria na tabela.(ex o nome do produto é "Arroz" da categoria alimento)
 	
 	private boolean urgente;
 	
@@ -60,5 +64,13 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }
