@@ -1,14 +1,13 @@
 package com.grupoTres.doacommerce.model;
 
-import java.util.Date;
+
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -22,7 +21,7 @@ public class Fisica {
 	private long id;
 	
 	@NotNull
-	@Size( min=20, max=150)//min e max aprovados?
+	@Max (250)
 	private String nome;
 	
 	@NotNull
@@ -35,8 +34,9 @@ public class Fisica {
 	@NotNull
 	private long cpf;
 	
-	@Temporal(TemporalType.TIMESTAMP)// sobre idade?
-	private Date idade = new java.sql.Date(System.currentTimeMillis());//captura a data q o dado passou pela classe
+	@NotNull
+	
+	private String idade;
 
 	public long getId() {
 		return id;
@@ -79,13 +79,15 @@ public class Fisica {
 		this.cpf = cpf;
 	}
 
-	public Date getIdade() {
+	public String getIdade() {
 		return idade;
 	}
 
-	public void setIdade(Date idade) {
+	public void setIdade(String idade) {
 		this.idade = idade;
 	}
+
+	
 	
 	
 	
